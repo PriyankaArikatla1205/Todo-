@@ -1,0 +1,21 @@
+<div id="myDIV" class="header">
+    <h2 style="margin:5px">My To Do List</h2>
+    <input type="text" id="myInput" [(ngModel)]="inputtext" placeholder="Title...">
+    <span (click)="newElement()" class="addBtn">Add</span>
+  </div>
+  
+  
+
+  <ul id="myUL"  *ngFor="let todo of todo$ | async">
+    <li (click)="checkUncheck($event, todo)"  [ngClass]="{'checked': todo.completed}">{{todo.task}}
+      <div style="width:2rem" (click)="deleteTask($event, todo.id)">
+        <div class="close" >x</div>
+      </div>
+    </li>
+  </ul>
+ 
+  
+    
+  
+  
+
